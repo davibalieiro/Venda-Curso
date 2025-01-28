@@ -56,14 +56,17 @@ def get_course():
 
 @app.delete('/course/{id}')
 def delete_course(id: str):
-    for course in db:
-        if course['id'] == id:
-            db.remove(course)
-            return JSONResponse(
-                {'message': f'Course {id} deleted successfully', 'data': db},
-                status_code=200
-            )
+    course = [c for c in db if c['id'] == id]
+    if not course:
+        return JSONResponse(
+            {'message': f'Course with id {id} not found', 'data': None},
+            status_code=404
+        )
+        
+    db.remove(course[0])
     return JSONResponse(
-        {'message': f'Course {id} not found', 'data': db},
-        status_code=404
+        {'message': f'Course with id {id} deleted', 'data': None},
+        status_code=200
     )
+
+    
