@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
+from uuid import uuid4
 
 app = FastAPI()
 db: List[dict] = []
@@ -16,6 +17,7 @@ app.add_middleware(
 )
 
 class CourseModel(BaseModel):
+    id: str | None = None
     name: str
     price: float
 
@@ -35,6 +37,7 @@ def create_course(course: CourseModel):
         },
         status_code=400
     )
+    course.id = str(uuid4())
     db.append(course.dict())
     
     return JSONResponse({
@@ -50,3 +53,20 @@ def get_course():
         {'message': 'success', 'data': db},
         status_code=200
     )
+
+@app.delete('/course/{id}')
+def delete_course(id: str):
+    course = [c for c in db if c['id'] == id]
+    if not course:
+        return JSONResponse(
+            {'message': f'Course with id {id} not found', 'data': None},
+            status_code=404
+        )
+        
+    db.remove(course[0])
+    return JSONResponse(
+        {'message': f'Course with id {id} deleted', 'data': None},
+        status_code=200
+    )
+
+    
