@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Cursos - Inspirado na Udemy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f5f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #0a3155;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ff4e00;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 25px;
+            padding: 8px;
+            max-width: 400px;
+            flex: 1;
+        }
+
+        .search-bar input {
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-bar button {
+            border: none;
+            background-color: #ff4e00;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #e94c00;
+        }
+
+        .courses-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .course-card h3 {
+            font-size: 18px;
+            margin: 15px 10px 10px;
+        }
+
+        .course-card p {
+            padding: 0 10px 15px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .course-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff4e00;
+            margin: 10px 0 15px;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            color: #ff4e00;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://via.placeholder.com/40" alt="Ícone da Plataforma">
+        <h1>Plataforma de Cursos</h1>
+    </div>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Cursos</a>
+        <a href="#">Categorias</a>
+        <a href="#">Ofertas</a>
+        <a href="#">Entrar</a>
+    </nav>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar cursos...">
+        <button>Pesquisar</button>
+    </div>
+</header>
+
+<section class="courses-section">
+    <div class="course-card">
+        <img src="https://i0.wp.com/cardbiss.com/wp-content/uploads/2022/12/305621708_403982621851047_4233737280632175537_n.png.jpeg?resize=1280%2C720&ssl=1" alt="Curso de HTML e CSS">
+        <h3>Curso de HTML e CSS</h3>
+        <p>Aprenda os fundamentos do HTML e CSS para construir sites incríveis do zero.</p>
+        <p class="course-price">R$ 99,90</p>
+    </div>
+
+    <div class="course-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Curso de JavaScript">
+        <h3>Curso de JavaScript</h3>
+        <p>Aprenda a criar sites dinâmicos e interativos utilizando JavaScript.</p>
+        <p class="course-price">R$ 149,90</p>
+    </div>
+
+    <div class="course-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="Curso de React">
+        <h3>Curso de React</h3>
+        <p>Construa interfaces modernas com React, uma das bibliotecas JavaScript mais populares.</p>
+        <p class="course-price">R$ 199,90</p>
+    </div>
+
+    <div class="course-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Curso de Python">
+        <h3>Curso de Python</h3>
+        <p>Aprenda programação com Python, uma linguagem poderosa e fácil de aprender.</p>
+        <p class="course-price">R$ 120,00</p>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-links">
+        <a href="#">Sobre</a>
+        <a href="#">Suporte</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Privacidade</a>
+    </div>
+    <p>&copy; 2025 Plataforma de Cursos - Todos os direitos reservados</p>
+</footer>
+
+</body>
+</html>

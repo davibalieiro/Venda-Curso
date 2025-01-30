@@ -13,7 +13,5 @@ class Course(BaseModel):
     category: Category 
     level: str # [Begginer, intermediary, advanced]
     thumbnail: bytes
-
-    
     created_at: date
     updated_at: date 
