@@ -1,21 +1,23 @@
+import os
+import sys
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from uuid import uuid4
-from models.CourseModel import CourseModel
 from db.fake_db import db
+from models.course_model import Course
 
 router = APIRouter(prefix="/course", tags=["Courses"])
 
 @router.post('')
-def create_course(course: CourseModel):
-    if (course.name is None):
+def create_course(course: Course):
+    if (not course.name):
         return JSONResponse({
             'message': "the 'name' field don't be null",
             'data': None
         },
         status_code=400
     )
-    if (course.price is None):
+    if (not course.price):
         return JSONResponse({
             'message': "the 'price' field don't be null",
             'data': None
