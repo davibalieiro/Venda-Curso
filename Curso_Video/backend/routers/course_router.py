@@ -1,60 +1,32 @@
-import os
-import sys
 from fastapi import APIRouter
-from fastapi.responses import JSONResponse
 from uuid import uuid4
 from db.fake_db import db
 from models.course_model import Course
+from utils.responses import response
 
 router = APIRouter(prefix="/course", tags=["Courses"])
 
 
+
 @router.post('')
 def create_course(course: Course):
-    if (not course.title):
-        return JSONResponse({
-            'message': "the 'title' field don't be null",
-            'data': None
-        },
-            status_code=400
-        )
-    if (not course.price):
-        return JSONResponse({
-            'message': "the 'price' field don't be null",
-            'data': None
-        },
-            status_code=400
-        )
+    for field in ["title", "price"]:
+        if not getattr(course, field):
+            return response(f"The '{field}' field can't be null", status=400)
+
     course.id = str(uuid4())
     db.append(course.dict())
-
-    return JSONResponse({
-        'message': f"Course '{course.title}' created with price {course.price}",
-        'data': course.dict()
-    },
-        status_code=201
-    )
-
+    return response(f"Course '{course.title}' created with price {course.price}", course.dict(), 201)
 
 @router.get('')
 def get_course():
-    return JSONResponse(
-        {'message': 'success', 'data': db},
-        status_code=200
-    )
-
+    return response('success', db)
 
 @router.delete('/{id}')
 def delete_course(id: str):
-    course = [c for c in db if c['id'] == id]
+    course = next((c for c in db if c['id'] == id), None)
     if not course:
-        return JSONResponse(
-            {'message': f'Course with id {id} not found', 'data': None},
-            status_code=404
-        )
+        return response(f'Course with id {id} not found', status=404)
 
-    db.remove(course[0])
-    return JSONResponse(
-        {'message': f'Course with id {id} deleted', 'data': None},
-        status_code=200
-    )
+    db.remove(course)
+    return response(f'Course with id {id} deleted')
