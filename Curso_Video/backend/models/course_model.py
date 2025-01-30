@@ -12,6 +12,6 @@ class Course(BaseModel):
     price: float
     category: Category 
     level: str # [Begginer, intermediary, advanced]
-    thumbnail: bytes
-    created_at: date
-    updated_at: date 
+    thumbnail: str
+    created_at: str
+    updated_at: str

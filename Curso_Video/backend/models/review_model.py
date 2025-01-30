@@ -10,5 +10,5 @@ class Review(BaseModel):
     course: Course
     rating: int # from 1 to 5
     comment: str
-    created_at: date
+    created_at: str
     

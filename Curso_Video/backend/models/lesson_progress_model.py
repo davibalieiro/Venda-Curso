@@ -9,6 +9,6 @@ class CourseModel(BaseModel):
     user: User
     lesson: Lesson
     watched: bool
-    watched_at: date
+    watched_at: str
     
     

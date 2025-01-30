@@ -8,31 +8,33 @@ from models.course_model import Course
 
 router = APIRouter(prefix="/course", tags=["Courses"])
 
+
 @router.post('')
 def create_course(course: Course):
-    if (not course.name):
+    if (not course.title):
         return JSONResponse({
-            'message': "the 'name' field don't be null",
+            'message': "the 'title' field don't be null",
             'data': None
         },
-        status_code=400
-    )
+            status_code=400
+        )
     if (not course.price):
         return JSONResponse({
             'message': "the 'price' field don't be null",
             'data': None
         },
-        status_code=400
-    )
+            status_code=400
+        )
     course.id = str(uuid4())
     db.append(course.dict())
-    
+
     return JSONResponse({
-            'message': f"Course '{course.name}' created with price {course.price}",
-            'data': course.dict()
-        },
-        status_code=201 
+        'message': f"Course '{course.title}' created with price {course.price}",
+        'data': course.dict()
+    },
+        status_code=201
     )
+
 
 @router.get('')
 def get_course():
@@ -40,6 +42,7 @@ def get_course():
         {'message': 'success', 'data': db},
         status_code=200
     )
+
 
 @router.delete('/{id}')
 def delete_course(id: str):
@@ -49,7 +52,7 @@ def delete_course(id: str):
             {'message': f'Course with id {id} not found', 'data': None},
             status_code=404
         )
-        
+
     db.remove(course[0])
     return JSONResponse(
         {'message': f'Course with id {id} deleted', 'data': None},

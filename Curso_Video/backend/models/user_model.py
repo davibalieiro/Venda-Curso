@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 from datetime import date
 
 class User(BaseModel):
@@ -7,7 +7,7 @@ class User(BaseModel):
     name: str
     email:str
     password: str # Hashed
-    role: list[str]
-    profile_picture: bytes
+    role: List[str]
+    profile_picture: str
     bio:str
-    created_at:date
+    created_at: str
