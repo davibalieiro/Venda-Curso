@@ -1,14 +1,10 @@
 from pydantic import BaseModel
 from typing import Optional
-from user_model import User
-from lesson_model import Lesson
 from datetime import date
+from Curso_Video.backend.utils.schema_config import Schema
 
-class CourseModel(BaseModel):
-    id: str | None = None
-    user: User
-    lesson: Lesson
+class LessonProgressSchema(Schema):
+    user_id: str
+    lesson_id: str
     watched: bool
-    watched_at: str
-    
-    
+    watched_at: Optional[date]

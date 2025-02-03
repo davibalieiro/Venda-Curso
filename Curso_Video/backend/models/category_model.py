@@ -1,6 +1,6 @@
-from pydantic import BaseModel
+from Curso_Video.backend.utils.schema_config import Schema
 
-class Category(BaseModel):
-    id: str | None = None
+class CategorySchema(Schema):
     name: str
     slug: str
+    

@@ -1,17 +1,18 @@
 from pydantic import BaseModel
 from typing import Optional
 from datetime import date
-from .user_model import User
-from .category_model import Category
+from .user_model import UserSchema
+from .category_model import CategorySchema
+from Curso_Video.backend.utils.schema_config import Schema
 
-class Course(BaseModel):
-    id: str | None = None
+class CourseSchema(Schema):
+    
     title: str
     description: str
-    instructor: User
+    instructor: UserSchema
     price: float
-    category: Category 
-    level: str # [Begginer, intermediary, advanced]
+    category: CategorySchema
+    level: str  # [Begginer, intermediary, advanced]
     thumbnail: str
-    created_at: str
-    updated_at: str
+    created_at: date
+    updated_at: date

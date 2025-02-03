@@ -1,14 +1,12 @@
 from pydantic import BaseModel
-from .user_model import User
-from .course_model import Course
+from .user_model import UserSchema
+from .course_model import CourseSchema
 from datetime import date
+from Curso_Video.backend.utils.schema_config import Schema
 
-
-class Review(BaseModel):
-    id: str | None = None
-    user: User
-    course: Course
-    rating: int # from 1 to 5
+class ReviewSchema(Schema):
+    user: UserSchema
+    course: CourseSchema
+    rating: int 
     comment: str
-    created_at: str
-    
+    created_at: date

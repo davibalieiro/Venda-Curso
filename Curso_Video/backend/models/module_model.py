@@ -1,11 +1,9 @@
 from pydantic import BaseModel
 from typing import Optional
-from .course_model import Course
+from Curso_Video.backend.utils.schema_config import Schema
 
-class Module(BaseModel):
-    id: str | None = None
+class ModuleSchema(Schema):
     title: str
-    description:str
-    course: Course
-    order: int 
-    
+    description: Optional[str]
+    course_id: str
+    order: int
