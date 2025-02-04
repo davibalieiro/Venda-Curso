@@ -7,8 +7,7 @@ import uuid
 class LessonSchema(Base):
     __tablename__ = 'lessons'
 
-    id = Column(String(36), primary_key=True, default=lambda: str(
-        uuid.uuid4()), unique=True, index=True)
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()), unique=True, index=True)
     title = Column(String, nullable=False)
     description = Column(String, nullable=True)
 

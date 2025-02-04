@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional
-from Curso_Video.backend.utils.schema_config import Schema
+from utils.schema_config import Schema
 
 class LessonSchema(Schema):
     title: str

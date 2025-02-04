@@ -3,7 +3,7 @@ from typing import Optional
 from datetime import date
 from .user_model import UserSchema
 from .category_model import CategorySchema
-from Curso_Video.backend.utils.schema_config import Schema
+from utils.schema_config import Schema
 
 class CourseSchema(Schema):
     

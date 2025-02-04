@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 from datetime import date
-from Curso_Video.backend.utils.schema_config import Schema
+from utils.schema_config import Schema
 
 class LessonProgressSchema(Schema):
     user_id: str
