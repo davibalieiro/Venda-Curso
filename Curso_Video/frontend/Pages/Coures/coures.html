@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>popo</title>
+</head>
+<body>
+   
+    <nav class="sidebar" aria-label="Main Sidebar">
+        <div class="sidebar-top-wrapper">
+            <div class="sidebar-top">
+                <a href="#" class="logo_wrapper">
+                    <img src="assets/storeify.png" alt="Logo" class="logo-small" />
+                    <span class="sidebar-title hide">Storeify</span>
+                </a>
+            </div>
+            <div class="expand-btn" aria-label="Toggle sidebar">
+                
+            </div>
+        </div>
+        <div class="search_wrapper">
+            
+            <input id="search-input" aria-label="Search" type="search" placeholder="Search for anything..." />
+        </div>
+        <div class="sidebar-links">
+            <h2>Main</h2>
+            <ul>
+                <li>
+                    <a href="#home" title="Home" class="tooltip">
+                        
+                        <span class="link hide">Home</span>
+                        <span class="tooltip_content">Home</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="sidebar_action_wrapper">
+            <div class="sidebar_action">
+                <div class="progress-bar">
+                    <div class="progress-bar_value">60%</div>
+                </div>
+            </div>
+            <h2>Used Capacity</h2>
+            <p>You are already using 60% of your capacity.</p>
+            <button>Upgrade plan</button>
+        </div>
+        <div class="sidebar-links bottom-links">
+            <ul role="menu">
+                <li role="menuitem">
+                    <a href="#settings" title="Settings" class="tooltip" aria-describedby="tooltip-settings">
+                        
+                        <span class="link hide">Settings</span>
+                        <span class="tooltip_content" role="tooltip" id="tooltip-settings">Settings</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="divider"></div>
+        <div class="sidebar_profile">
+            <div class="avatar_wrapper">
+                <img class="avatar" src="assets/profile.png" alt="Profile picture of Joe Doe" />
+                <div class="online_status"></div>
+            </div>
+            <div class="avatar_name hide">
+                <div class="user-name">Joe Doe</div>
+                <div class="email">joe.doe@atheros.ai</div>
+            </div>
+        </div>
+        <a href="#logout" class="logout">
+        </a>
+    </nav>
+    <script src="script.js"></script>
+</body>
+</html>
