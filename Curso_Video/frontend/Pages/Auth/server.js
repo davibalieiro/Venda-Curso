@@ -14,7 +14,7 @@ const users = [];
 app.use(bodyParser.json());
 
 app.post('/register', async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, email } = req.body;
 
     const userExists = users.find(user => user.username === username);
     if (userExists) {
@@ -23,9 +23,9 @@ app.post('/register', async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = { username, password: hashedPassword };
+    const newUser = { username, password: hashedPassword, email };
     users.push(newUser);
-    console.log(newUser)
+    console.log(newUser);
     res.status(201).json({ message: 'Usuário registrado com sucesso' });
 });
 

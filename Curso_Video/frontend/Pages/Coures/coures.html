@@ -1,78 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>popo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos - Plataforma de Cursos</title>
+  <style>
+    /* Estilos gerais */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #F7F7F7;
+    color: #021B33;
+    }
+
+    header {
+    background-color: #021B33;
+    color: white;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    header h1 {
+    font-size: 36px;
+    margin-left: 10px;
+    }
+
+    header .logo img {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    filter: brightness(0) invert(1);
+    }
+
+    .navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    }
+
+    .navbar a:hover {
+    color: #A9CFE5;
+    }
+
+    .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px;
+    width: 400px;
+    }
+
+    .search-bar input {
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 25px;
+    font-size: 16px;
+    }
+
+    .search-bar button {
+    border: none;
+    background-color: #12577B;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+    }
+
+    .search-bar button:hover {
+    background-color: #A9CFE5;
+    }
+
+    /* Filtros */
+    .filters {
+      background-color: #d5d8db;
+      padding: 20px;
+      width: 200px;
+      position: fixed;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .filters h3 {
+      margin-bottom: 15px;
+    }
+
+    .filters ul {
+      list-style: none;
+    }
+
+    .filters ul li {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #fff;
+      margin: 5px 0;
+      text-align: center;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .filters ul li:hover {
+      background-color: #ddd;
+    }
+
+    /* Listagem de Cursos */
+    .courses-container {
+      margin-left: 220px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: 0.3s;
+      padding: 15px;
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .course-card h3 {
+      margin: 10px 0;
+    }
+
+    .course-price {
+      font-weight: bold;
+      color: #0073e6;
+      margin-top: 5px;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-   
-    <nav class="sidebar" aria-label="Main Sidebar">
-        <div class="sidebar-top-wrapper">
-            <div class="sidebar-top">
-                <a href="#" class="logo_wrapper">
-                    <img src="assets/storeify.png" alt="Logo" class="logo-small" />
-                    <span class="sidebar-title hide">Storeify</span>
-                </a>
-            </div>
-            <div class="expand-btn" aria-label="Toggle sidebar">
-                
-            </div>
-        </div>
-        <div class="search_wrapper">
-            
-            <input id="search-input" aria-label="Search" type="search" placeholder="Search for anything..." />
-        </div>
-        <div class="sidebar-links">
-            <h2>Main</h2>
-            <ul>
-                <li>
-                    <a href="#home" title="Home" class="tooltip">
-                        
-                        <span class="link hide">Home</span>
-                        <span class="tooltip_content">Home</span>
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-        <div class="sidebar_action_wrapper">
-            <div class="sidebar_action">
-                <div class="progress-bar">
-                    <div class="progress-bar_value">60%</div>
-                </div>
-            </div>
-            <h2>Used Capacity</h2>
-            <p>You are already using 60% of your capacity.</p>
-            <button>Upgrade plan</button>
-        </div>
-        <div class="sidebar-links bottom-links">
-            <ul role="menu">
-                <li role="menuitem">
-                    <a href="#settings" title="Settings" class="tooltip" aria-describedby="tooltip-settings">
-                        
-                        <span class="link hide">Settings</span>
-                        <span class="tooltip_content" role="tooltip" id="tooltip-settings">Settings</span>
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-        <div class="divider"></div>
-        <div class="sidebar_profile">
-            <div class="avatar_wrapper">
-                <img class="avatar" src="assets/profile.png" alt="Profile picture of Joe Doe" />
-                <div class="online_status"></div>
-            </div>
-            <div class="avatar_name hide">
-                <div class="user-name">Joe Doe</div>
-                <div class="email">joe.doe@atheros.ai</div>
-            </div>
-        </div>
-        <a href="#logout" class="logout">
-        </a>
-    </nav>
-    <script src="script.js"></script>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="logo">
+      <img src="./img/Captura_de_tela_2x025-01-24_113913__1_-removebg-preview (1).png" alt="Ícone da Plataforma">
+    </div>
+    <div>
+      <h1>Plataforma de Cursos</h1>
+    </div>
+    <div class="navbar">
+      <a href="#">Início</a>
+      <a href="#" id="categoriesBtn">Categorias</a>
+      <a href="/Venda-Curso/Curso_Video/frontend/Pages/Coures/coures.html">Cursos</a>
+      <a href="#">Ofertas</a>
+      <a href="../Auth/Dash/UserDashboard.html">Conta</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar cursos...">
+      <button onclick="searchCourses()">Pesquisar</button>
+    </div>
+  </header>
+
+  <!-- Filtros -->
+  <aside class="filters">
+    <h3>Filtrar por Categoria</h3>
+    <ul>
+      <li onclick="filterCategory('Todos')">Todos</li>
+      <li onclick="filterCategory('Desenvolvimento Web')">Desenvolvimento Web</li>
+      <li onclick="filterCategory('Inteligência Artificial')">Inteligência Artificial</li>
+      <li onclick="filterCategory('Ciência de Dados')">Ciência de Dados</li>
+      <li onclick="filterCategory('Segurança da Informação')">Segurança da Informação</li>
+      <li onclick="filterCategory('Banco de Dados')">Banco de Dados</li>
+    </ul>
+  </aside>
+
+  <section class="courses-container">
+      <div class="course-card" data-category="Desenvolvimento Web">
+        <img src="/Venda-Curso/Curso_Video/frontend/Img/html_css.jpg" alt="Curso de HTML e CSS">
+        <h3>Curso de HTML e CSS</h3>
+      </div>
+        <div class="course-card" data-category="Inteligência Artificial">
+        <img src="\Venda-Curso\Curso_Video\frontend\Img\Python I.A.jpg" alt="Curso de Python para IA">
+        <h3>Curso de Python para IA</h3>
+      </div>
+        <div class="course-card" data-category="Desenvolvimento Web">
+        <img src="/Venda-Curso\Curso_Video\frontend\Img\JavaScript.jpg" alt="Curso de JavaScript">
+        <h3>Curso de JavaScript</h3>
+      </div>
+        <div class="course-card" data-category="Desenvolvimento Web">
+        <img src="/Venda-Curso\Curso_Video\frontend\Img\React.jpg" alt="Curso de React">
+        <h3>Curso de React</h3>
+      </div>
+        <div class="course-card" data-category="Inteligência Artificial">
+        <img src="/Venda-Curso/Curso_Video/frontend/Img/Python.jpg" alt="Curso de Machine Learning">
+        <h3>Curso de Machine Learning</h3>
+      </div>
+        <div class="course-card" data-category="Ciência de Dados">
+        <img src="/Venda-Curso\Curso_Video\frontend\Img\Ciencia de Dados.jpg" alt="Curso de Ciência de Dados">
+        <h3>Curso de Ciência de Dados</h3>
+      </div>
+        <div class="course-card" data-category="Segurança da Informação">
+        <img src="/Venda-Curso\Curso_Video\frontend\Img\IBSEC.jpg" alt="Curso de Segurança da Informação">
+        <h3>Curso de Segurança da Informação</h3>
+      </div>
+      <div class="course-card" data-category="Banco de Dados">
+      <img src="/Venda-Curso\Curso_Video\frontend\Img\MongoDB.jpg" alt="Curso de MongoDB">
+      <h3>Curso de MongoDB</h3>
+    </div>
+      <div class="course-card" data-category="Banco de Dados">
+      <img src="/Venda-Curso\Curso_Video\frontend\Img\PostgreSQL.jpg" alt="Curso de PostgreSQL">
+      <h3>Curso de PostgreSQL</h3>
+    </div>
+    <div class="course-card" data-category="Desenvolvimento Web">
+        <img src="\Venda-Curso\Curso_Video\frontend\Img\TypeScript.jpg" alt="Curso de TypeScript">
+        <h3>Curso de TypeScript</h3>
+    </div>
+    <div class="course-card" data-category="Desenvolvimento Web">
+        <img src="\Venda-Curso\Curso_Video\frontend\Img\Vue.jpg" alt="Curso de Vue.js">
+        <h3>Curso de Vue.js</h3>
+    </div>
+    <div class="course-card" data-category="Inteligência Artificial">
+        <img src="\Venda-Curso\Curso_Video\frontend\Img\Rede Neural.jpg" alt="Curso de Redes Neurais">
+        <h3>Curso de Redes Neurais</h3>
+    </div>
+    <div class="course-card" data-category="Inteligência Artificial">
+        <img src="\Venda-Curso\Curso_Video\frontend\Img\NLP.jpg" alt="Curso de NLP">
+        <h3>Curso de Processamento de Linguagem Natural</h3>
+    </div>
+    <div class="course-card" data-category="Ciência de Dados">
+        <img src="\Venda-Curso\Curso_Video\frontend\Img\SLQ.jpg" alt="Curso de SQL para Análise de Dados">
+        <h3>Curso de SQL para Análise de Dados</h3>
+    </div>
+    <div class="course-card" data-category="Ciência de Dados">
+        <img src="\Venda-Curso\Curso_Video\frontend\Img\Estaticatica Dados.jpg" alt="Curso de Estatística para Ciência de Dados">
+        <h3>Curso de Estatística para Ciência de Dados</h3>
+    </div>
+    <div class="course-card" data-category="Ciência de Dados">
+        <img src="\Venda-Curso\Curso_Video\frontend\Img\Power BI.jpg" alt="Curso de Power BI">
+        <h3>Curso de Power BI</h3>
+    </div>
+    <div class="course-card" data-category="Segurança da Informação">
+        <img src="\Venda-Curso\Curso_Video\frontend\Img\Segurança da Informação.jpg" alt="Curso de Pentest e Hacking Ético">
+        <h3>Curso de Pentest e Hacking Ético</h3>
+    </div>
+    <div class="course-card" data-category="Banco de Dados">
+        <img src="/Venda-Curso/Curso_Video/frontend/Img/FireBase.jpg" alt="Curso de Firebase">
+        <h3>Curso de Firebase</h3>
+    </div>
+    <div class="course-card" data-category="Banco de Dados">
+        <img src="\Venda-Curso\Curso_Video\frontend\Img\ADM Dados.jpg" alt="Curso de Administração de Banco de Dados">
+        <h3>Curso de Administração de Banco de Dados</h3>
+    </div>
+
+  </section>
+  
+<script>
+    function filterCategory(category) {
+      let courses = document.querySelectorAll('.course-card');
+      courses.forEach(course => {
+        if (category === 'Todos' || course.getAttribute('data-category') === category) {
+          course.style.display = 'block';
+        } else {
+          course.style.display = 'none';
+        }
+      });
+    }
+  </script>
+  
+  <!-- Rodapé -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Sobre</a>
+      <a href="#">Suporte</a>
+      <a href="#">Termos de Uso</a>
+      <a href="#">Privacidade</a>
+    </div>
+    <p>&copy; 2025 Plataforma de Cursos - Todos os direitos reservados</p>
+  </footer>
+
 </body>
 </html>
