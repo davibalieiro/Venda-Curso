@@ -151,8 +151,9 @@ footer {
     padding: 15px;
     background: linear-gradient(135deg, #6a11cb, #2575fc);
     color: #fff;
-    position: fixed;
+    position: relative;
     width: 100%;
     bottom: 0;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+
 }

@@ -10,11 +10,11 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-   display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(./imagem-corporativa.webp) no-repeat center center/cover;
+    background: url(/Venda-Curso/Curso_Video/frontend/Img/freepik__upload__78578.png) no-repeat center center/cover;
 }
 .wrapper{
     position: relative;

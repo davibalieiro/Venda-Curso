@@ -9,7 +9,7 @@
 <body>
   <header>
     <div class="logo">
-      <img src="./img/Captura_de_tela_2x025-01-24_113913__1_-removebg-preview (1).png" alt="Ícone da Plataforma">
+      <img src="\Venda-Curso\Curso_Video\frontend\Img\logo branco.png" alt="Ícone da Plataforma">
     </div>
     <div>
       <h1>Plataforma de Cursos</h1>
@@ -18,7 +18,7 @@
       <a href="#">Início</a>
       <a href="#" id="categoriesBtn">Categorias</a>
       <a href="/Venda-Curso/Curso_Video/frontend/Pages/Coures/coures.html">Cursos</a>
-      <a href="#">Ofertas</a>
+  
       <a href="../Auth/Dash/UserDashboard.html">Conta</a>
     </div>
     <div class="search-bar">
@@ -26,7 +26,7 @@
       <button>Pesquisar</button>
     </div>
   </header>
-  
+ 
     <!-- Banner de Imagens Rotativas -->
     <div class="carousel-container">
       <div class="carousel">
@@ -37,34 +37,55 @@
       <button class="prev" onclick="prevImage()">&#10094;</button>
       <button class="next" onclick="nextImage()">&#10095;</button>
   </div>
-
  
-  <section class="courses-section">
-    <div class="course-card">
-      <img src="https://i0.wp.com/cardbiss.com/wp-content/uploads/2022/12/305621708_403982621851047_4233737280632175537_n.png.jpeg?resize=1280%2C720&ssl=1" alt="Curso de HTML e CSS">
-      <h3>Curso de HTML e CSS</h3>
-      <p>Aprenda os fundamentos do HTML e CSS para construir sites incríveis do zero.</p>
-      <p class="course-price">R$ 99,90</p>
+ 
+  <section class="cursos">
+    <h2>Cursos Populares</h2>
+    <div class="container-cursos">
+        <div class="card">
+            <img src="img/html-css-js.png" alt="Curso de HTML, CSS e JavaScript">
+            <h3>HTML, CSS e JavaScript</h3>
+            <p>Aprenda a criar sites modernos e responsivos.</p>
+            <span>R$ 49,90</span>
+            <button>Comprar</button>
+        </div>
+        <div class="card">
+            <img src="img/python.png" alt="Curso de Python">
+            <h3>Python para Iniciantes</h3>
+            <p>Domine Python do zero ao avançado.</p>
+            <span>R$ 59,90</span>
+            <button>Comprar</button>
+        </div>
+        <div class="card">
+            <img src="img/react.png" alt="Curso de React">
+            <h3>React do Zero ao Avançado</h3>
+            <p>Crie aplicações web modernas com React.</p>
+            <span>R$ 79,90</span>
+            <button>Comprar</button>
+        </div>
+        <div class="card">
+            <img src="img/java.png" alt="Curso de Java">
+            <h3>Java Completo</h3>
+            <p>Aprenda Java e programação orientada a objetos.</p>
+            <span>R$ 69,90</span>
+            <button>Comprar</button>
+        </div>
+        <div class="card">
+            <img src="img/javascript-avancado.png" alt="Curso de JavaScript Avançado">
+            <h3>JavaScript Avançado</h3>
+            <p>Aprofunde seus conhecimentos em JavaScript.</p>
+            <span>R$ 89,90</span>
+            <button>Comprar</button>
+        </div>
+        <div class="card">
+            <img src="img/sql.png" alt="Curso de Banco de Dados SQL">
+            <h3>Banco de Dados SQL</h3>
+            <p>Aprenda a gerenciar bancos de dados SQL.</p>
+            <span>R$ 39,90</span>
+            <button>Comprar</button>
+        </div>
     </div>
-    <div class="course-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Curso de JavaScript">
-      <h3>Curso de JavaScript</h3>
-      <p>Aprenda a criar sites dinâmicos e interativos utilizando JavaScript.</p>
-      <p class="course-price">R$ 149,90</p>
-    </div>  
-    <div class="course-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="Curso de React">
-      <h3>Curso de React</h3>
-      <p>Construa interfaces modernas com React, uma das bibliotecas JavaScript mais populares.</p>
-      <p class="course-price">R$ 199,90</p>
-    </div>
-    <div class="course-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Curso de Python">
-      <h3>Curso de Python</h3>
-      <p>Aprenda programação com Python, uma linguagem poderosa e fácil de aprender.</p>
-      <p class="course-price">R$ 120,00</p>
-    </div>
-  </section>
+</section>
  
   <footer>
     <div class="footer-links">
@@ -112,32 +133,32 @@
       <button onclick="sendMessage()">Enviar</button>
     </div>
   </div>
-  
+ 
   <script>
      let currentIndex = 0;
         const images = document.querySelectorAll('.carousel img');
         const totalImages = images.length;
         const carousel = document.querySelector('.carousel');
-
+ 
         let autoSlide = setInterval(nextImage, 5000);
-
+ 
         function updateCarousel() {
             const newTransform = -currentIndex * 100 + '%';
             carousel.style.transform = `translateX(${newTransform})`;
         }
-
+ 
         function nextImage() {
             currentIndex = (currentIndex + 1) % totalImages;
             updateCarousel();
             resetAutoSlide();
         }
-
+ 
         function prevImage() {
             currentIndex = (currentIndex - 1 + totalImages) % totalImages;
             updateCarousel();
             resetAutoSlide();
         }
-
+ 
         function resetAutoSlide() {
             clearInterval(autoSlide);
             autoSlide = setInterval(nextImage, 5000);
